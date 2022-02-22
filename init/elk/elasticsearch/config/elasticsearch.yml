@@ -1,0 +1,8 @@
+network.host: 0.0.0.0
+node.name: elasticsearch
+cluster.name: "docker-cluster"
+cluster.initial_master_nodes:
+  - elasticsearch
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"

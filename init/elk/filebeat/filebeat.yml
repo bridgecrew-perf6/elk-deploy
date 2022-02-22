@@ -1,0 +1,29 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /data/logs/*/*/*.log
+    exclude_lines: ['\sDEBUG\s\d']
+    exclude_files: ['*.log$']
+    fields:
+      docType: sys-log
+      project: java-platform
+    multiline:
+      pattern: '^\[\S+:\S+:\d{2,}] '
+      negate: true
+      match: after
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  bulk_max_size: 2048
+
+
