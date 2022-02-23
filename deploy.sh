@@ -1,7 +1,7 @@
 
 function init(){
 	if test ! -f "/data/elk/elasticsearch.yml" ;then
-		cp -r init/elk /data/elk
+		cp -r init/elk /data
 	fi
 	chmod -R 755 /data/elk
 }
