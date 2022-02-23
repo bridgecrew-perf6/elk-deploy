@@ -4,6 +4,7 @@ function init(){
 		cp -r init/elk /data
 	fi
 	chmod -R 755 /data/elk
+	chmod 777 /data/elk/elasticsearch
 }
 
 

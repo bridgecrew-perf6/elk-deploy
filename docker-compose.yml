@@ -15,7 +15,7 @@ services:
     environment:
       TZ: Asia/Shanghai
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
-      SERVER_NAME: localhost
+      SERVER_NAME: kibana
       SERVER_HOST: 0.0.0.0
       ELASTICSEARCH_URL: http://elasticsearch:9200/
       I18N_LOCALE: zh-CN
@@ -38,7 +38,7 @@ services:
     volumes:
       - /data/elk/logstash/pipeline:/usr/share/logstash/pipeline
       - /data/elk/logstash/patterns:/usr/share/logstash/patterns
-      - /data/elk/logstash/config:/usr/share/logstash/config
+      - /data/elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
 
   elasticsearch:
     image: elasticsearch:${ELASTICSEARCH_VERSION}
