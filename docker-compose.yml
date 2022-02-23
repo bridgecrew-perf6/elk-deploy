@@ -52,7 +52,7 @@ services:
     volumes:
       - /data/elk/elasticsearch/data:/usr/share/elasticsearch/data
       - /data/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins
-      - /data/elk/elasticsearch/conf/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
+      - /data/elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
 
   filebeat:
     image: elastic/filebeat:${FILEBEAT_VERSION}
